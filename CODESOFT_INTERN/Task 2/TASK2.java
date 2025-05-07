@@ -1,0 +1,56 @@
+import java.util.Scanner;
+
+public class TASK2 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        // Input: Number of subjects
+        System.out.print("Enter the number of subjects: ");
+        int numSubjects = sc.nextInt();
+
+        int[] marks = new int[numSubjects];
+        int total = 0;
+
+        // Input: Marks for each subject
+        for (int i = 0; i < numSubjects; i++) {
+            System.out.print("Enter marks for Subject " + (i + 1) + " (out of 100): ");
+            marks[i] = sc.nextInt();
+
+            // Optional: Check for valid input
+            if (marks[i] < 0 || marks[i] > 100) {
+                System.out.println("Invalid marks. Please enter a number between 0 and 100.");
+                i--; // redo the input for this subject
+                continue;
+            }
+
+            total += marks[i];
+        }
+
+        // Calculate Average Percentage
+        double average = (double) total / numSubjects;
+
+        // Grade Calculation
+        String grade;
+        if (average >= 90) {
+            grade = "A+";
+        } else if (average >= 80) {
+            grade = "A";
+        } else if (average >= 70) {
+            grade = "B";
+        } else if (average >= 60) {
+            grade = "C";
+        } else if (average >= 50) {
+            grade = "D";
+        } else {
+            grade = "F (Fail)";
+        }
+
+        // Display Results
+        System.out.println("\n--- Result ---");
+        System.out.println("Total Marks: " + total + " out of " + (numSubjects * 100));
+        System.out.printf("Average Percentage: %.2f%%\n", average);
+        System.out.println("Grade: " + grade);
+
+        sc.close();
+    }
+}

@@ -1,14 +1,10 @@
-// Online Java Compiler
-// Use this editor to write, compile and run your Java code online
 
-
-import java.util.Random;
-import java.util.Scanner;
+import java.util.*;
 
 public class TASK1 {
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
         Random random = new Random();
 
         boolean playAgain = true;
@@ -24,7 +20,7 @@ public class TASK1 {
 
             while (attemptsLeft > 0) {
                 System.out.print("Enter your guess: ");
-                int guess = scanner.nextInt();
+                int guess = sc.nextInt();
 
                 if (guess == numberToGuess) {
                     System.out.println("🎉 Correct! You've guessed the number!");
@@ -42,17 +38,16 @@ public class TASK1 {
             }
 
             if (!guessedCorrectly) {
-                System.out.println("❌ You've run out of attempts! The correct number was: " + numberToGuess);
+                System.out.println(" You've run out of attempts! The correct number was: " + numberToGuess);
             }
 
-            // Ask to play again
             System.out.print("Do you want to play another round? (yes/no): ");
-            scanner.nextLine(); // Consume newline
-            String response = scanner.nextLine();
+            sc.nextLine(); // Consume newline
+            String response = sc.nextLine();
             playAgain = response.equalsIgnoreCase("yes");
         }
 
         System.out.println("\nThanks for playing! 🏆 You won " + roundsWon + " round(s).");
-        scanner.close();
+        sc.close();
     }
 }

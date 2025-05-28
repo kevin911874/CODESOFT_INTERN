@@ -27,7 +27,6 @@ public class QuizApp {
             askQuestion(i + 1, questions.get(i));
         }
 
-        // Final Score
         System.out.println("\n=== Quiz Finished ===");
         System.out.println("Your Final Score: " + score + "/" + questions.size());
         System.out.println("\nAnswer Summary:");
@@ -38,10 +37,10 @@ public class QuizApp {
 
     public static List<Question> loadQuestions() {
         List<Question> qList = new ArrayList<>();
-        qList.add(new Question("What is the capital of France?",
-                new String[]{"A. London", "B. Paris", "C. Rome", "D. Berlin"}, 'B'));
         qList.add(new Question("Who developed Java?",
                 new String[]{"A. Dennis Ritchie", "B. Bjarne Stroustrup", "C. James Gosling", "D. Guido van Rossum"}, 'C'));
+        qList.add(new Question("which of these is not a Java access modifier?",
+                new String[]{"A. public", "B. private", "C. protected", "D. internal"}, 'D'));
         qList.add(new Question("Which keyword is used to inherit a class in Java?",
                 new String[]{"A. super", "B. extends", "C. implements", "D. inherits"}, 'B'));
         qList.add(new Question("Which method is the entry point of Java programs?",
@@ -75,7 +74,7 @@ public class QuizApp {
         if (userInput[0] == null) {
             System.out.println("\nTime's up!");
             summary.add("Q" + qNo + ": Time out! Correct answer: " + q.correctAnswer);
-            inputThread.interrupt(); // clean exit
+            inputThread.interrupt(); 
             return;
         }
     
